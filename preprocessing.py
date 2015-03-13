@@ -116,16 +116,3 @@ class KyTeaPreprocessing(TwitterPreprocessing):
             convtw = func(convtw)
 
         return convtw
-
-
-if __name__ == '__main__':
-    import sys
-
-    pre = Preprocessing()
-
-    for filename in sys.argv[1:]:
-        print(filename)
-        with open(filename, "r") as f:
-            for line in f:
-                _line = line.strip()
-                print(pre.convert(_line))
