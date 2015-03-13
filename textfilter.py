@@ -7,7 +7,7 @@ import chartype
 class JapaneseFilter:
     def _is_nihongo(self, s):
         ct = chartype.Chartype()
-        ex_set = {"！", "？"}
+        allowed_chars = {"！", "？"}
         try:
             # CharType が
             #   ValueError: no such name
@@ -15,7 +15,7 @@ class JapaneseFilter:
             return all(
                 ct.is_nihongo(char) or
                 ct.is_ascii(char) or
-                char in ex_set for char in s
+                char in allowed_chars for char in s
             )
         except:
             return False
